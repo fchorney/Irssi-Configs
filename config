@@ -1,0 +1,219 @@
+servers = (
+  {
+    address = "chat.freenode.net";
+    port = "7000";
+    chatnet = "FreeNode";
+    autoconnect = "yes";
+    use_ssl = "yes";
+  },
+  {
+    address = "irc.esper.net";
+    port = "6667";
+    chatnet = "Esper";
+    autoconnect = "yes";
+    use_ssl = "no";
+  },
+  {
+    address = "irc.lolibot.net";
+    port = "6667";
+    chatnet = "Lolibot";
+    autoconnect = "yes";
+    use_ssl = "no";
+  }
+);
+
+chatnets = {
+  Esper = {
+    type = "IRC";
+    autosendcmd = "/msg NickServ identify bigwillie";
+  };
+  FreeNode = {
+    type = "IRC";
+    autosendcmd = "/msg Nickserv identify bigwillie";
+  };
+  Lolibot = { type = "IRC"; autosendcmd = "/msg Nickserv identify bigwillie"; };
+};
+
+channels = (
+  {
+    name = "#teamautobots";
+    chatnet = "Freenode";
+    autojoin = "Yes";
+    password = "bigwillie";
+  },
+  {
+    name = "#telenium";
+    chatnet = "FreeNode";
+    autojoin = "Yes";
+    password = "bigwillie";
+  },
+  { name = "#nepharia"; chatnet = "FreeNode"; autojoin = "Yes"; },
+  { name = "#skullspace"; chatnet = "FreeNode"; autojoin = "Yes"; },
+  { name = "#ocremix"; chatnet = "Esper"; autojoin = "Yes"; },
+  { name = "#propellerhead"; chatnet = "Esper"; autojoin = "Yes"; },
+  { name = "#allkore"; chatnet = "Lolibot"; autojoin = "Yes"; }
+);
+
+keyboard = (
+  { key = "meta-l"; id = "command"; data = "clear "; },
+  { key = "meta-x"; id = "command"; data = "window last"; },
+  { key = "meta-delete"; id = "command"; data = "window close"; },
+  { key = "meta-w"; id = "command"; data = "names "; }
+);
+
+aliases = {
+  wc = "window close";
+  wn = "window number";
+  asshat = "MSG * (-:|3";
+  "problem?" = "MSG * Problem? http://i.imgur.com/ZeTuP.png";
+};
+
+settings = {
+  core = {
+    real_name = "Fernando Chorney";
+    user_name = "fernando";
+    nick = "DJSBX";
+    log_timestamp = "[%F %H:%M:%S] ";
+    hostname = "";
+    log_create_mode = "600";
+    quit_message = "";
+    write_buffer_timeout = "5";
+  };
+  "fe-common/core" = {
+    beep_msg_level = "MSGS NOTICES HILIGHT";
+    autolog_path = "~/.irssi/logs/$chatnet/$0.log";
+    autolog = "yes";
+    emphasis_multiword = "yes";
+    hide_colors = "no";
+    windows_auto_renumber = "no";
+    emphasis_replace = "no";
+    theme = "bluu";
+    term_charset = "UTF-8";
+    reuse_unused_windows = "yes";
+    show_own_nickchange_once = "yes";
+    hilight_act_color = "= %R";
+  };
+  "fe-text" = { scroll_page_count = "/1"; actlist_sort = "refnum"; };
+  "irc/core" = {
+    part_message = "";
+    alternate_nick = "DJXBS";
+    skip_motd = "yes";
+  };
+  "perl/core/scripts" = { };
+};
+
+statusbar = {
+  default = {
+    window = {
+      items = {
+        barstart = { priority = "100"; };
+        window = { };
+        window_empty = { };
+        lag = { priority = "-1"; };
+        act = { priority = "10"; };
+        more = { priority = "-1"; alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#teamautobots";
+        tag = "FreeNode";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#telenium";
+        tag = "FreeNode";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#nepharia";
+        tag = "FreeNode";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#skullspace";
+        tag = "FreeNode";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#ocremix";
+        tag = "Esper";
+      }
+    );
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#propellerhead";
+        tag = "Esper";
+      }
+    );
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#allkore";
+        tag = "Lolibot";
+      }
+    );
+  };
+};
+mainwindows = { 1 = { first_line = "1"; lines = "67"; }; };
+logs = { };
+ignores = ( );
+hilights = (
+  {
+    text = ".*djsbx.*";
+    color = "%P";
+    nick = "yes";
+    word = "yes";
+    regexp = "yes";
+  },
+  {
+    text = "\"*.djsbx.*\"";
+    color = "%P";
+    act_color = "%p";
+    nick = "no";
+    word = "no";
+    regexp = "yes";
+  },
+  {
+    text = "djsbx";
+    color = "%P";
+    act_color = "%p";
+    nick = "no";
+    word = "no";
+  }
+);
